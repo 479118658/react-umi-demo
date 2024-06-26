@@ -1,9 +1,6 @@
 import { defineConfig } from "umi";
-
+import routes from "./config/route";
 export default defineConfig({
-  routes: [
-    { path: "/", component: "index" },
-    { path: "/docs", component: "docs" },
-  ],
-  npmClient: 'pnpm',
+  routes,
+  npmClient: "pnpm",
 });
