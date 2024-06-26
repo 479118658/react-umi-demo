@@ -8,10 +8,18 @@ interface TodoItemProps {
 
 export default function ({ todo, toggleTodo, deleteTodo }: TodoItemProps) {
   return (
-    <li style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
-      {todo.text}
-      <button onClick={() => toggleTodo(todo.id)}>Toggle</button>
-      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+    <li>
+      <span
+        style={{
+          display: "inline-block",
+          width: "100px",
+          textDecoration: todo.completed ? "line-through" : "none",
+        }}
+      >
+        {todo.text}
+      </span>
+      <button onClick={() => toggleTodo(todo.id)}>切换</button>
+      <button onClick={() => deleteTodo(todo.id)}>删除</button>
     </li>
   );
 }
