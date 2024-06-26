@@ -10,6 +10,13 @@ const TodoListPage = () => {
   // 定义filter状态
   const [filter, setFilter] = useState("all");
 
+  // const [message, setMessage] = useLocalStorageState<string | undefined>(
+  //   'use-local-storage-state-demo1',
+  //   {
+  //     defaultValue: 'Hello~',
+  //   },
+  // );
+
   useEffect(() => {
     // 获取todos
     const todosFromStorage = localStorage.getItem("todos");

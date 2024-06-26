@@ -9,7 +9,7 @@ export default function Layout() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/docs">Docs</Link>
+          <Link to="/docs">组件通信</Link>
         </li>
         <li>
           <Link to="/todo">TodoList</Link>

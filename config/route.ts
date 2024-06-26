@@ -1,5 +1,5 @@
 export default [
   { path: "/", component: "index" },
-  { path: "/docs", component: "docs" },
+  { path: "/docs", component: "docs/index" },
   { path: "/todo", component: "todo" },
 ];
