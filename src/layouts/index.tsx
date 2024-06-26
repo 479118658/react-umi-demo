@@ -15,6 +15,9 @@ export default function Layout() {
           <Link to="/todo">TodoList</Link>
         </li>
         <li>
+          <Link to="/hooks">自定义hooks</Link>
+        </li>
+        <li>
           <a href="https://github.com/umijs/umi">Github</a>
         </li>
       </ul>
