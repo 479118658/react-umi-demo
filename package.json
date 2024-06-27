@@ -11,6 +11,7 @@
     "start-server": "npm run server -- --watch"
   },
   "dependencies": {
+    "antd": "^5.18.3",
     "axios": "^1.7.2",
     "umi": "^4.2.13"
   },

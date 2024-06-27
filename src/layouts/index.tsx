@@ -18,6 +18,9 @@ export default function Layout() {
           <Link to="/hooks">自定义hooks</Link>
         </li>
         <li>
+          <Link to="/antd">Ant Design</Link>
+        </li>
+        <li>
           <a href="https://github.com/umijs/umi">Github</a>
         </li>
       </ul>
