@@ -21,6 +21,9 @@ export default function Layout() {
           <Link to="/antd">Ant Design</Link>
         </li>
         <li>
+          <Link to="/zustand">ZuStand</Link>
+        </li>
+        <li>
           <a href="https://github.com/umijs/umi">Github</a>
         </li>
       </ul>

@@ -8,12 +8,15 @@
     "setup": "umi setup",
     "start": "npm run dev",
     "server": "json-server --watch ./server/data.json --port 8008",
-    "start-server": "npm run server -- --watch"
+    "start-server": "npm run server -- --watch",
+    "analyze": "source-map-explorer 'dist/*'"
   },
   "dependencies": {
     "antd": "^5.18.3",
     "axios": "^1.7.2",
-    "umi": "^4.2.13"
+    "source-map-explorer": "^2.5.3",
+    "umi": "^4.2.13",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.33",
