@@ -1,4 +1,4 @@
-import { Button, Card, Form, Input } from "antd";
+import { Button, Card, Form, Input, message } from "antd";
 import style from "./index.less";
 const formItemLayout = {
   labelCol: {
@@ -12,7 +12,10 @@ const formItemLayout = {
 };
 
 const onFinish = (values: any) => {
-  values.password = btoa(values.password);
+  values.password = btoa(values.password + "H");
+  message.success("登录成功");
+  // 登录成功后，将用户信息存储到localStorage中
+  localStorage.setItem("userInfo", JSON.stringify(values));
   console.log("Success:", values);
 };
 function Antd() {
@@ -25,7 +28,7 @@ function Antd() {
             label="用户名"
             rules={[
               { required: true, message: "请输入用户名" },
-              { pattern: /^1[3-9]\d{9}/, message: "请输入正确手机号" },
+              { pattern: /^1[3-9]\d{9}$/, message: "请输入正确手机号" },
             ]}
           >
             <Input allowClear />
