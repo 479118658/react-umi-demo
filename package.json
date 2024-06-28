@@ -12,6 +12,8 @@
     "analyze": "source-map-explorer 'dist/*'"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
+    "@ant-design/pro-components": "^2.7.10",
     "antd": "^5.18.3",
     "axios": "^1.7.2",
     "source-map-explorer": "^2.5.3",

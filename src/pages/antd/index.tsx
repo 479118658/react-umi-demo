@@ -1,25 +1,29 @@
 import { Button, Card, Form, Input, message } from "antd";
 import style from "./index.less";
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 28 },
-    sm: { span: 5 },
-  },
-  wrapperCol: {
-    xs: { span: 28 },
-    sm: { span: 20 },
-  },
-};
+import { useState } from "react";
+import Index from "./ProForm";
 
-const onFinish = (values: any) => {
-  values.password = btoa(values.password + "H");
-  message.success("登录成功");
-  // 登录成功后，将用户信息存储到localStorage中
-  localStorage.setItem("userInfo", JSON.stringify(values));
-  console.log("Success:", values);
-};
 function Antd() {
-  return (
+  const formItemLayout = {
+    labelCol: {
+      xs: { span: 28 },
+      sm: { span: 5 },
+    },
+    wrapperCol: {
+      xs: { span: 28 },
+      sm: { span: 20 },
+    },
+  };
+  const [login, setLogin] = useState(false);
+  const onFinish = (values: any) => {
+    values.password = btoa(values.password + "H");
+    message.success("登录成功");
+    // 登录成功后，将用户信息存储到localStorage中
+    localStorage.setItem("userInfo", JSON.stringify(values));
+    setLogin(true);
+    console.log("Success:", values);
+  };
+  return !login ? (
     <div className={style.content}>
       <Card title="用户登录" className={style.card} bordered={false}>
         <Form {...formItemLayout} onFinish={onFinish}>
@@ -36,7 +40,10 @@ function Antd() {
           <Form.Item
             name="password"
             label="密码"
-            rules={[{ required: true, message: "请输入密码" }]}
+            rules={[
+              { required: true, message: "请输入密码" },
+              { pattern: /^.{7,}$/, message: "密码要大于6位" },
+            ]}
           >
             <Input type="password" allowClear />
           </Form.Item>
@@ -47,6 +54,8 @@ function Antd() {
         </Form>
       </Card>
     </div>
+  ) : (
+    <Index />
   );
 }
 
