@@ -5,4 +5,5 @@ export default [
   { path: "/antd", component: "antd/index", name: "antd" },
   { path: "/zustand", component: "zustand/index" },
   { path: "/todo", component: "todo", name: "todo" },
+  { path: "/*", component: "@/pages/404.tsx" },
 ];

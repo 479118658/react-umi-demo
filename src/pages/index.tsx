@@ -10,7 +10,7 @@ export default function HomePage() {
     axios.get("/api/todos").then((res) => {
       console.log("发出请求", res);
       setData(
-        res.data.takeaway.map((item: listItem) => {
+        res.data.map((item: listItem) => {
           return {
             id: item.id,
             name: item.name,
