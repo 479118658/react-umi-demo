@@ -7,10 +7,10 @@ interface listItem {
 }
 export default function HomePage() {
   function getData() {
-    axios.get("http://localhost:8008/takeaway").then((res) => {
+    axios.get("/api/todos").then((res) => {
       console.log("发出请求", res);
       setData(
-        res.data.map((item: listItem) => {
+        res.data.takeaway.map((item: listItem) => {
           return {
             id: item.id,
             name: item.name,
