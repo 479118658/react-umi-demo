@@ -1,7 +1,7 @@
 import { Button } from "antd"; // 导入antd库中的Button组件
 import axios from "axios";
 import { create } from "zustand"; // 导入zustand库中的create函数
-
+import "./index.less";
 const useStore = create((set: any) => ({
   // 使用create函数创建一个状态管理器
   // 初始化一个count变量，值为0

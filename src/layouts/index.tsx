@@ -1,33 +1,29 @@
-import { Link, Outlet } from "umi";
-import styles from "./index.less";
+import { ProLayout } from "@ant-design/pro-components";
+import { Link, Outlet, useAppData, useLocation } from "umi";
 
 export default function Layout() {
+  const { clientRoutes } = useAppData();
+  const location = useLocation();
   return (
-    <div className={styles.navs}>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/docs">组件通信</Link>
-        </li>
-        <li>
-          <Link to="/todo">TodoList</Link>
-        </li>
-        <li>
-          <Link to="/hooks">自定义hooks</Link>
-        </li>
-        <li>
-          <Link to="/antd">Ant Design</Link>
-        </li>
-        <li>
-          <Link to="/zustand">ZuStand</Link>
-        </li>
-        <li>
-          <a href="https://github.com/umijs/umi">Github</a>
-        </li>
-      </ul>
+    <ProLayout
+      route={clientRoutes[0]}
+      location={location}
+      title="阮景涛第一个umi项目"
+      menuItemRender={(menuItemProps, defaultDom) => {
+        if (menuItemProps.isUrl || menuItemProps.children) {
+          return defaultDom;
+        }
+        if (menuItemProps.path && location.pathname !== menuItemProps.path) {
+          return (
+            <Link to={menuItemProps.path} target={menuItemProps.target}>
+              {defaultDom}
+            </Link>
+          );
+        }
+        return defaultDom;
+      }}
+    >
       <Outlet />
-    </div>
+    </ProLayout>
   );
 }

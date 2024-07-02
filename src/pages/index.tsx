@@ -1,6 +1,7 @@
 import { useState } from "react";
 import yayJpg from "../assets/yay.jpg";
 import axios from "axios";
+import { Button } from "antd";
 interface listItem {
   name: string;
   id: number;
@@ -43,8 +44,10 @@ export default function HomePage() {
           <li key={index}>{item.name}</li>
         ))}
       </ul>
-      <button onClick={addItem}>点我加一条</button>
-      <button onClick={getData}>点我请求</button>
+      <Button onClick={addItem}>点我加一条</Button>
+      <Button type="primary" style={{ marginTop: 10 }} onClick={getData}>
+        点我请求
+      </Button>
     </>
   );
 }
