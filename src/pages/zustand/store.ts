@@ -4,16 +4,16 @@ import axios from "axios";
 // 定义一个getData函数，用于模拟异步请求
 function getData(path: string): Promise<[]> {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      axios
-        .get(path)
-        .then((res) => {
+    axios
+      .get(path)
+      .then((res) => {
+        setTimeout(() => {
           resolve(res.data);
-        })
-        .catch((err) => {
-          reject(err);
-        });
-    }, 1000);
+        }, 2000);
+      })
+      .catch((err) => {
+        reject(err);
+      });
   });
 }
 
@@ -29,7 +29,7 @@ export const useStore = create((set: any) => ({
   // 定义一个reset方法，用于重置count的值为0
   reset: () => set({ count: 0, list: [] }),
   // 定义一个fetchData方法，用于模拟异步请求
-  fetchData: async () => {
+  fetchData: async (): Promise<unknown> => {
     try {
       const data = await getData("/api/todos");
       console.log("data", data);
